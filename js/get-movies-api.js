@@ -28,7 +28,7 @@ const fetchMovies = async function () {
 
 const setCarousel = async function (movies) {
   const carousel = document.querySelector(".owl-carousel");
-  console.log(movies);
+  // console.log(movies);
   for (const movie of movies) {
     carousel.innerHTML += `
         <div class="owl-carousel-info-wrap item">
@@ -84,7 +84,7 @@ const getMovieDetails = function (movies) {
   for (const movie of movies) {
     moviesUrls.push(`${baseUrl}/movie/${movie.id}`);
   }
-  console.log(moviesUrls);
+  // console.log(moviesUrls);
   moviesUrls.slice(0, 2).forEach(async (movieUrl) => {
     const data = await getDataApi(movieUrl);
 
@@ -282,7 +282,7 @@ searchBtn.addEventListener("click", async function (e) {
   searchContainer.innerHTML = "";
 
   inputVal = document.getElementById("search-input").value;
-  console.log(inputVal);
+  // console.log(inputVal);
 
   // console.log(renderSearchByKw(inputVal));
   // let resultsStatus = await renderSearchByKw(inputVal);

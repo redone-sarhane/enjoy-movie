@@ -274,12 +274,21 @@ const renderSearchByKw = async function (keyword) {
 const searchBtn = document.getElementById("submit-search-btn");
 let inputVal = document.getElementById("search-input").value;
 
-searchBtn.addEventListener("click", async function (e) {
-  e.preventDefault();
+const clearSearchResult = function () {
   const searchContainer = document.querySelector(
     ".search-section .search-results"
   );
   searchContainer.innerHTML = "";
+};
+
+document
+  .querySelector(".search-filter-btn")
+  .addEventListener("click", clearSearchResult);
+
+searchBtn.addEventListener("click", async function (e) {
+  e.preventDefault();
+
+  clearSearchResult();
 
   inputVal = document.getElementById("search-input").value;
   // console.log(inputVal);
@@ -346,5 +355,3 @@ const minutesToHours = (minutes) => {
   });
 })();
 
-console.log("i used ready template HTML/CSS and modified javscript API part");
-console.log("this is project is not comlpeted yet(still under development");

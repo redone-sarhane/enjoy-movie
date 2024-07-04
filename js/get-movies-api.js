@@ -85,7 +85,7 @@ const getMovieDetails = function (movies) {
     moviesUrls.push(`${baseUrl}/movie/${movie.id}`);
   }
   // console.log(moviesUrls);
-  moviesUrls.slice(0, 2).forEach(async (movieUrl) => {
+  moviesUrls.slice(0, 10).forEach(async (movieUrl) => {
     const data = await getDataApi(movieUrl);
 
     const neccesaryDataMovie = {
@@ -129,7 +129,7 @@ const getMovieDetails = function (movies) {
     <div class="">
     <div class="custom-block-icon-wrap">
           <div class="section-overlay"></div>
-          <a href="detail-page.html" class="custom-block-image-wrap">
+          <a href="#" class="custom-block-image-wrap">
             <img
               src="${neccesaryDataMovie.imgPoster}"
 
@@ -165,7 +165,7 @@ const getMovieDetails = function (movies) {
         </div>
 
         <h5 class="mb-2">
-          <a href="detail-page.html"> ${neccesaryDataMovie.title} 
+          <a href="#"> ${neccesaryDataMovie.title} 
           </a>
         </h5>
 
@@ -249,7 +249,13 @@ const renderSearchByKw = async function (keyword) {
             <div class="custom-block custom-block-overlay">
               <a href="detail-page.html" class="custom-block-image-wrap">
                 <img
-                  src="${baseImg}/${el.poster_path}"
+
+                src="${
+                  el.poster_path
+                    ? baseImg + "/" + el.poster_path
+                    : "images/imagenotfoundsquare.png"
+                }"
+                  
                   class="custom-block-image img-fluid"
                   alt=""
                 />
@@ -354,4 +360,3 @@ const minutesToHours = (minutes) => {
     }
   });
 })();
-
